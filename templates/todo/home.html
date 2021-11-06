@@ -1,0 +1,39 @@
+
+
+{% extends 'main/base.html' %}
+
+
+{% block body%} 
+
+<h1 style="margin-top: 50px; margin-bottom: 50px; color:rgb(196, 92, 92)">Current TODO List</h1>
+
+
+
+<table class="table table-secondry table-striped" >
+    <thead class="table-dark">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </thead>
+<tbody>
+{% for task in d %}
+
+
+<tr>
+    <td>{{task.id}}</td>
+    <td>{{task.name}}</td>
+    <td>{{task.description | truncatewords:3}}</td>
+    <td>
+        <a type="button" class="btn btn-primary" href="{% url 'todo:get_task' task.id %}">View</a>
+        <a type="button" class="btn btn-warning" href="{% url 'todo:update_task' task.id %}">Update</a>
+        <a type="button" class="btn btn-danger" href="{% url 'todo:delete_task' task.id %}">Delete</a>     
+        
+    </td>
+</tr>
+{% empty %}
+<td colspan="4" >Empty</td>
+{% endfor %}
+</tbody >
+</table>
+{%endblock%}

@@ -1,0 +1,31 @@
+
+
+{% extends 'main/base.html' %}
+
+
+{% block body%} 
+
+<h1 style="margin-top: 50px; margin-bottom: 50px; color:rgb(196, 92, 92)"> Task Number {{id}}</h1>
+
+<table class="table table-secondry table-striped" >
+    <thead class="table-dark">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </thead>
+<tbody>
+
+<tr>
+    <td>{{id}}</td>
+    <td>{{name}}</td>
+    <td>{{description | truncatewords:3}}</td>
+    <td>
+      <a type="button" class="btn btn-primary"  href="{% url 'todo:get_tasks'%}">Back</a>
+        
+    </td>
+</tr>
+
+</tbody>
+</table>
+{%endblock%}

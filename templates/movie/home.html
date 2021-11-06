@@ -1,0 +1,43 @@
+
+
+{% extends 'main/base.html' %}
+
+
+{% block body%} 
+
+<h1 style="margin-top: 50px; margin-bottom: 50px; color:rgb(196, 92, 92)">Current Movie List</h1>
+
+
+
+<table class="table table-secondry table-striped" >
+    <thead class="table-dark">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </thead>
+<tbody>
+{% for mo in d %}
+
+
+<tr>
+    <td>{{mo.id}}</td>
+    <td>{{mo.name}}</td>
+    <td>{{mo.description | truncatewords:3}}</td>
+    <td>
+        <a type="button" class="btn btn-primary" href="{% url 'movie:movie_view' mo.id %}">View</a> 
+        <a type="button" class="btn btn-success" href="{% url 'movie:movie_edit' mo.id %}">Update</a>
+        <a type="button" class="btn btn-danger" href="{% url 'movie:movie_delete' mo.id %}">Delete</a>
+  
+        
+    </td>
+</tr>
+{% empty %}
+<td colspan="4" >Empty</td>
+{% endfor %}
+</tbody >
+</table>
+
+<a type="button" class="btn btn-primary m-2" href="{% url 'movie:movie_Add'%}">Add Movie</a>
+
+{%endblock%}

@@ -1,0 +1,36 @@
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Movie </title>
+ <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet"> 
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-danger bg-danger">
+        <div class="container-fluid">
+          <a class="navbar-brand" style = 'color: white' disabled>Movies-App</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" style = 'color: white' aria-current="page" href="{% url 'movie:home'%}">Movies</a>
+              <a class="nav-link" style = 'color: white' href="{% url 'todo:get_tasks'%}">To Do</a>
+              <a class="nav-link" style = 'color: white'  href="#">Login</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+
+    {% block body %} 
+
+    {% endblock %}
+    </div>
+    
+    
+</body>
+</html>

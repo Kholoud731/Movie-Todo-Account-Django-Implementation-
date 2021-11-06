@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+
+
+{% block body%} 
+
+<style>
+.col-md-12 input, .col-md-12 textarea{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+
+}
+
+.lable{
+  font-weight: bold;
+}
+#id_active{
+  width: fit-content
+}
+
+</style>
+
+
+<div class="form-body">
+  <div class="row">
+      <div class="form-holder">
+          <div class="form-content">
+              <div class="form-items">
+                  <h3 style="margin-top: 50px; color:rgb(66, 64, 167)">Edit Movie</h3>
+                  <p>Fill in the data below.</p>
+                  <form method="POST" enctype="multipart/form-data" action="{% url 'movie:movie_edit' pk=af.instance.pk %}">
+                    {% csrf_token %}
+                      <div class="col-md-12">
+                        <div class="lable">Movie Name</div>
+                        {{af.name}}
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="lable">Descriptione</div>
+                        {{af.description}}
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="lable">Language</div>
+                        {{af.language}}
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="lable">Movie Duration</div>
+                        {{af.running_time}}
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="lable">Poster</div>
+                        {{af.image}}
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="lable active">Released</div>
+                        {{af.active}}
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="lable">Rate</div>
+                        {{af.rate}}
+                      </div>
+
+                      
+                      <div class="form-button mt-3">
+                          <button id="submit" type="submit" class="btn btn-primary">Confirm</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</form>
+        
+{%endblock%}
